@@ -20,5 +20,16 @@ package eu.jpereira.trainings.designpatterns.structural.facade.model;
  *
  */
 public class Order {
+	Book dummyBook;
+	
+	Customer dummyCustomer;
+
+	public Order() {
+	}
+
+	public Order(Book dummyBook, Customer dummyCustomer ) {
+		this.dummyBook = dummyBook;
+		this.dummyCustomer = dummyCustomer;
+	}
 
 }
