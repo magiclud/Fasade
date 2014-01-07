@@ -8,45 +8,45 @@ import eu.jpereira.trainings.designpatterns.structural.facade.service.Wharehouse
 
 public class DefaultBookstoreFacade implements BookstoreFacade {
 
-	String isbn = "123";
-	String customerId = "wall-e";
-	Book dummyBook;
-	Customer dummyCustomer;
-	Order dummyOrder;
-	DispatchReceipt dummyDispatchReceipt;
+	CustomerDBService customerService;
+	BookDBService bookService;
+	OrderingService orderingService;
+	WharehouseService warehouseService;
 
 	@Override
 	public void placeOrder(String customerId, String isbn) {
-		dummyBook = new Book(isbn);
-		dummyCustomer = new Customer(customerId);
+
+		Book dummyBook = new Book(isbn);
+		Customer dummyCustomer = new Customer(customerId);
+		dummyCustomer = customerService.findCustomerById(customerId);
+		Order dummyOrder = new Order(dummyBook, dummyCustomer);
+		dummyOrder = orderingService.createOrder(dummyCustomer, dummyBook);
+		DispatchReceipt dummyDispatchReceipt = new DispatchReceipt(dummyOrder);
+		dummyDispatchReceipt = warehouseService.dispatch(dummyOrder);
 	}
 
 	@Override
 	public void setCustomerService(CustomerDBService customerService) {
-		dummyCustomer = customerService.findCustomerById(customerId);
+		this.customerService = customerService;
 
 	}
 
 	@Override
 	public void setBookService(BookDBService bookService) {
-		dummyBook = bookService.findBookByISBN(isbn);
+		this.bookService = bookService;
 
 	}
 
 	@Override
 	public void setBookService(OrderingService orderingService) {
-		dummyOrder = orderingService.createOrder(dummyCustomer, dummyBook);
 
+		this.orderingService = orderingService;
 	}
 
 	@Override
 	public void setWarehouseService(WharehouseService warehouseService) {
-		dummyDispatchReceipt = warehouseService.dispatch(dummyOrder);// TODO
+		this.warehouseService = warehouseService;
 
 	}
-
-
-
-	
 
 }

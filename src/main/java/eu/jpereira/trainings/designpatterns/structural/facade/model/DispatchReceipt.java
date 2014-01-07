@@ -20,5 +20,13 @@ package eu.jpereira.trainings.designpatterns.structural.facade.model;
  *
  */
 public class DispatchReceipt {
+	Order dummyOrder;
+
+	public DispatchReceipt() {
+	}
+
+	public DispatchReceipt(Order dummyOrder) {
+		this.dummyOrder = dummyOrder;
+	}
 
 }

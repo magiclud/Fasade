@@ -78,6 +78,6 @@ public class BookStoreFacadeTest extends AbstractClientTest {
 		impl.setBookService(orderingService);
 		// ...
 		// Return an instance of your facade implementation
-		return null;
+		return impl;
 	}
 }
