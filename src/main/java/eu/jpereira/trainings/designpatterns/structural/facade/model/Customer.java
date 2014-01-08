@@ -22,12 +22,17 @@ package eu.jpereira.trainings.designpatterns.structural.facade.model;
 public class Customer {
 
 	String customerId;
+	DispatchReceipt dispatchReceipt;
 	/**
 	 * @param string
 	 */
 	public Customer(String string) {
 		customerId = string;
 
+	}
+
+	public Customer(DispatchReceipt dispatchReceipt) {
+		this.dispatchReceipt = dispatchReceipt;
 	}
 
 }

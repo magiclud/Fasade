@@ -40,8 +40,9 @@ public class BookStoreFacadeTest extends AbstractClientTest {
 		String customerId = "wall-e";
 		Book dummyBook = new Book(isbn);
 		Customer dummyCustomer = new Customer(customerId);
-		Order dummyOrder = new Order();
-		DispatchReceipt dummyDispatchReceipt = new DispatchReceipt();
+		Order dummyOrder = new Order(dummyBook, dummyCustomer);
+		DispatchReceipt dummyDispatchReceipt = new DispatchReceipt(dummyOrder);
+
 
 		// prepate SUT
 		BookstoreFacade facade = createFacade();
@@ -51,6 +52,7 @@ public class BookStoreFacadeTest extends AbstractClientTest {
 		when(customerService.findCustomerById(customerId)).thenReturn(dummyCustomer);
 		when(orderingService.createOrder(dummyCustomer, dummyBook)).thenReturn(dummyOrder);
 		when(warehouseService.dispatch(dummyOrder)).thenReturn(dummyDispatchReceipt);
+
 
 		// Exercise SUT
 		facade.placeOrder(customerId, isbn);
