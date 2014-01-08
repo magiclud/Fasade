@@ -21,11 +21,11 @@ public class DefaultBookstoreFacade implements BookstoreFacade {
 	@Override
 	public void placeOrder(String customerId, String isbn) {
 
-		Book dummyBook = bookService.findBookByISBN(isbn);
-		Customer dummyCustomer = customerService.findCustomerById(customerId);
-		Order dummyOrder = orderingService.createOrder(dummyCustomer, dummyBook);
-		customerNotificationService.notifyClient(dummyOrder);
-		DispatchReceipt dummyDispatchReceipt = warehouseService.dispatch(dummyOrder);
+		Book book = bookService.findBookByISBN(isbn);
+		Customer customer = customerService.findCustomerById(customerId);
+		Order order = orderingService.createOrder(customer, book);
+		customerNotificationService.notifyClient(order);
+		DispatchReceipt dummyDispatchReceipt = warehouseService.dispatch(order);
 		customerNotificationService.notifyClient(dummyDispatchReceipt);
 
 	}
