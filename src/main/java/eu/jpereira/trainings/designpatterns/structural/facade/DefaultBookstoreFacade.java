@@ -24,9 +24,12 @@ public class DefaultBookstoreFacade implements BookstoreFacade {
 		Book dummyBook = bookService.findBookByISBN(isbn);
 		Customer dummyCustomer = customerService.findCustomerById(customerId);
 		Order dummyOrder = orderingService.createOrder(dummyCustomer, dummyBook);
-
+		customerNotificationService.notifyClient(dummyOrder);
 		DispatchReceipt dummyDispatchReceipt = warehouseService.dispatch(dummyOrder);
 		customerNotificationService.notifyClient(dummyDispatchReceipt);
+		// DispatchReceipt dummyDispatchReceipt =
+		// warehouseService.dispatch(dummyOrder);
+		// customerNotificationService.notifyClient(dummyDispatchReceipt);
 	}
 
 	@Override

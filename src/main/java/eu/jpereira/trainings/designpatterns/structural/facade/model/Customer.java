@@ -22,7 +22,8 @@ package eu.jpereira.trainings.designpatterns.structural.facade.model;
 public class Customer {
 
 	String customerId;
-	DispatchReceipt dispatchReceipt;
+
+	// DispatchReceipt dispatchReceipt;
 	/**
 	 * @param string
 	 */
@@ -31,8 +32,8 @@ public class Customer {
 
 	}
 
-	public Customer(DispatchReceipt dispatchReceipt) {
-		this.dispatchReceipt = dispatchReceipt;
-	}
+	// public Customer(DispatchReceipt dispatchReceipt) {
+	// this.dispatchReceipt = dispatchReceipt;
+	// }
 
 }

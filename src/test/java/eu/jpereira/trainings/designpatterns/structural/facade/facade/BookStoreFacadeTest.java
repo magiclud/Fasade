@@ -40,8 +40,8 @@ public class BookStoreFacadeTest extends AbstractClientTest {
 		String customerId = "wall-e";
 		Book dummyBook = new Book(isbn);
 		Customer dummyCustomer = new Customer(customerId);
-		Order dummyOrder = new Order(dummyBook, dummyCustomer);
-		DispatchReceipt dummyDispatchReceipt = new DispatchReceipt(dummyOrder);
+		Order dummyOrder = new Order();
+		DispatchReceipt dummyDispatchReceipt = new DispatchReceipt();
 
 
 		// prepate SUT
