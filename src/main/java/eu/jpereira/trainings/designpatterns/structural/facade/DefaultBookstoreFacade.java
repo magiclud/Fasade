@@ -27,9 +27,7 @@ public class DefaultBookstoreFacade implements BookstoreFacade {
 		customerNotificationService.notifyClient(dummyOrder);
 		DispatchReceipt dummyDispatchReceipt = warehouseService.dispatch(dummyOrder);
 		customerNotificationService.notifyClient(dummyDispatchReceipt);
-		// DispatchReceipt dummyDispatchReceipt =
-		// warehouseService.dispatch(dummyOrder);
-		// customerNotificationService.notifyClient(dummyDispatchReceipt);
+
 	}
 
 	@Override

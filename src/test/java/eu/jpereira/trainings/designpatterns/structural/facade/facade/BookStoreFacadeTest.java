@@ -74,6 +74,7 @@ public class BookStoreFacadeTest extends AbstractClientTest {
 		// Example:
 
 		BookstoreFacade impl = new DefaultBookstoreFacade();
+		impl.setNotificationService(customerNotificationService);
 		impl.setBookService(bookService);
 		impl.setCustomerService(customerService);
 		impl.setWarehouseService(warehouseService);

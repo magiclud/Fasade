@@ -23,7 +23,6 @@ public class Customer {
 
 	String customerId;
 
-	// DispatchReceipt dispatchReceipt;
 	/**
 	 * @param string
 	 */
@@ -31,9 +30,5 @@ public class Customer {
 		customerId = string;
 
 	}
-
-	// public Customer(DispatchReceipt dispatchReceipt) {
-	// this.dispatchReceipt = dispatchReceipt;
-	// }
 
 }
